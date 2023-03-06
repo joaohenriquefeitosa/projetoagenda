@@ -1,0 +1,54 @@
+<% include includes/head.ejs %>
+<% include includes/nav.ejs %>
+<section class="container">
+  
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 my-3">
+      <h1 class="display-1 text-center">Criar conta ou Entrar</h1>
+      <p class="text-center lead">Faça login ou crie sua conta abaixo.</p>
+
+      <% include includes/messages.ejs %>
+
+      <div class="row">
+        <div class="col-lg my-5">
+          <h4>Faça seu cadastro</h4>
+          <p>Se você ainda não tem conta, preencha o formulário abaixo:</p>
+          <form class="form-cadastro" action="/login/register" method="POST">
+            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+            <div class="mb-3">
+              <label>Seu email</label>
+              <input type="email" class="form-control" name="email">
+            </div>
+            <div class="mb-3">
+              <label>Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Criar minha conta</button>
+          </form>
+        </div>
+
+        <div class="col-lg my-5">
+          <h4>Faça seu login</h4>
+          <p>Se você ainda já tem conta, faça login abaixo:</p>
+          <form class="form-login" action="/login/login" method="POST">
+            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+            <div class="mb-3">
+              <label>Seu email</label>
+              <input type="email" class="form-control" name="email">
+            </div>
+            <div class="mb-3">
+              <label>Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+
+</section>
+<% include includes/footer.ejs %>
